@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class Login : MonoBehaviour
 {
-    public Button loginBtn;
+    public GameObject loginBtn;
     public InputField email;
     public InputField password;
+    public GameObject loading;
+    public GameObject fail;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -19,17 +22,19 @@ public class Login : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
     
     void loginClick(){
+        fail.SetActive(false);
         if (email.text == "doctor@mail.com" && password.text == "1234")
         {
-            Debug.Log ("sucess");
+            loginBtn.SetActive(false);
+            loading.SetActive(true);
         }
         else
         {
-            Debug.Log("Error");
+            fail.SetActive(true);
         }
     }
 }
