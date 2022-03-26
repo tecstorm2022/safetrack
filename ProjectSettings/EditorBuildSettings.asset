@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Login.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: b972f20471658194ea9bbff67f307b0c
+  - enabled: 1
+    path: Assets/Scenes/Patient1.unity
+    guid: 8a80f2d0b02d7dd43a7051bcb667a0c9
   m_configObjects: {}
