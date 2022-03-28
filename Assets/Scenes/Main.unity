@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -928,8 +928,8 @@ GameObject:
   - component: {fileID: 899535652}
   - component: {fileID: 899535655}
   - component: {fileID: 899535654}
-  - component: {fileID: 899535653}
   - component: {fileID: 899535656}
+  - component: {fileID: 899535653}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1047,11 +1047,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 899535651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc878d2912e30084f99b31f0c57c6c06, type: 3}
+  m_Script: {fileID: 11500000, guid: ce1650d324f1740a9b14f489a01898d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patient1: {fileID: 899535653}
-  patient2: {fileID: 2037155525}
+  btn: {fileID: 899535653}
+  scene: Patient1
 --- !u!1 &1009459475
 GameObject:
   m_ObjectHideFlags: 0
