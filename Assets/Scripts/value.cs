@@ -3,5 +3,6 @@
 public class PValue
 {
     public float[] temp;
-    public int[] spo2, hr, bp;
+    public int[] spo2, hr;
+    public string[] bp;
 }

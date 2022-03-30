@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,15 @@ public class ReadValues : MonoBehaviour
     public TextAsset jsonFile;
 
     private float[] temps;
-    private int[] spo2, hr, bp;
+    private int[] spo2, hr;
+    private string[] bp;
 
-    public Text tempratureText, spoText, hrText, bpText;
+    private float tempT;
+    private int cont = 1;
 
-    public GameObject tA, tD;
+    public Text tempratureText, spoText, hrText, bpText, medT;
+
+    public GameObject tA, tD, hA, hD, bA, bD, sA, sD;
     
     // Start is called before the first frame update
     void Start()
@@ -34,16 +39,23 @@ public class ReadValues : MonoBehaviour
         
     }
 
-    IEnumerator ReadPValues(float[] temprature, int[] spo2, int[] hr, int[] bp)
+    IEnumerator ReadPValues(float[] temprature, int[] spo2, int[] hr, string[] bp)
     {
         for (int i = 0; i < temprature.Length; i++)
         {
             tempratureText.text = temprature[i].ToString("0.0");
             EvaluateTemp(temprature[i]);
-            spoText.text = spo2[i].ToString();
-            hrText.text = hr[i].ToString();
-            bpText.text = bp[i].ToString();
+            tempT += temprature[i];
+            MedianTemp(tempT, cont);
             
+            spoText.text = spo2[i].ToString();
+            EvaluateSPO(spo2[i]);
+            hrText.text = hr[i].ToString();
+            EvaluateHR(hr[i]);
+            bpText.text = bp[i];
+            EvaluateBP(bp[i]);
+
+            cont++;
             yield return new WaitForSeconds(3);
         }
     }
@@ -67,5 +79,81 @@ public class ReadValues : MonoBehaviour
             tA.SetActive(false);
             tD.SetActive(true);
         }
+        
+    }
+
+    void EvaluateHR(int hr)
+    {
+        if (hr >=50 && hr < 110)
+        {
+            hrText.color = Color.green;
+            hA.SetActive(false);
+            hD.SetActive(false);
+        } else if ((hr > 20 && hr < 50) || (hr >= 110 && hr < 150))
+        {
+            hrText.color = Color.yellow;
+            hA.SetActive(true);
+            hD.SetActive(false);
+        }
+        else if (hr <= 20 || hr >= 150)
+        {
+            hrText.color = Color.red;
+            hA.SetActive(false);
+            hD.SetActive(true);
+        }
+    }
+
+    void EvaluateBP(string bp)
+    {
+        string[] disSis = bp.Split('/');
+        
+        int sis = Int32.Parse(disSis[0]);
+        int dis = Int32.Parse(disSis[1]);
+        
+        if ((sis < 120 && sis >= 90) && (dis < 80 && dis >= 60))
+        {
+            bpText.color = Color.green;
+            bA.SetActive(false);
+            bD.SetActive(false);
+        }
+        else if ((sis <= 90 && dis <= 60) || (sis >= 130) || (dis >= 80))
+        {
+            bpText.color = Color.red;
+            bA.SetActive(false);
+            bD.SetActive(true);
+        } else if ((sis <= 90 && dis > 60) || (sis > 90 && dis <= 60) || (sis >= 120 && sis < 130 && dis < 80))
+        {
+            bpText.color = Color.yellow;
+            bA.SetActive(true);
+            bD.SetActive(false);
+        }
+    }
+
+    void EvaluateSPO(int spo)
+    {
+        if (spo >= 95)
+        {
+            spoText.color = Color.green;
+            sA.SetActive(false);
+            sD.SetActive(false);
+        } else if (spo == 93 || spo == 94)
+        {
+            spoText.color = Color.yellow;
+            sA.SetActive(true);
+            sD.SetActive(false);
+        }
+        else if (spo <= 92)
+        {
+            spoText.color = Color.red;
+            sA.SetActive(false);
+            sD.SetActive(true);
+        }
+    }
+
+    void MedianTemp(float total, int baseT)
+    {
+        float med = total / baseT;
+        
+        medT.text = "Median: " + med;
     }
 }
