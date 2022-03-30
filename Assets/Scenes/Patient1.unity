@@ -831,6 +831,7 @@ GameObject:
   - component: {fileID: 641757102}
   - component: {fileID: 641757105}
   - component: {fileID: 641757104}
+  - component: {fileID: 641757106}
   - component: {fileID: 641757103}
   m_Layer: 5
   m_Name: Monitor
@@ -940,6 +941,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641757101}
   m_CullTransparentMesh: 1
+--- !u!114 &641757106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641757101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1650d324f1740a9b14f489a01898d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btn: {fileID: 641757103}
+  scene: Monitor
 --- !u!1 &692309964
 GameObject:
   m_ObjectHideFlags: 0
