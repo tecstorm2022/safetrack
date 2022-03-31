@@ -13,9 +13,10 @@ public class ReadValues : MonoBehaviour
     private string[] bp;
 
     private float tempT;
+    private int hrT, bpS, bpD, soT;
     private int cont = 1;
 
-    public Text tempratureText, spoText, hrText, bpText, medT;
+    public Text tempratureText, spoText, hrText, bpText, medT, medH, medB, medS;
 
     public GameObject tA, tD, hA, hD, bA, bD, sA, sD;
     
@@ -50,10 +51,17 @@ public class ReadValues : MonoBehaviour
             
             spoText.text = spo2[i].ToString();
             EvaluateSPO(spo2[i]);
+            soT += spo2[i];
+            MedianSPO(soT, cont);
+            
             hrText.text = hr[i].ToString();
             EvaluateHR(hr[i]);
+            hrT += hr[i];
+            MedianHR(hrT, cont);
+            
             bpText.text = bp[i];
             EvaluateBP(bp[i]);
+            MedianBP(bpS, bpD, cont);
 
             cont++;
             yield return new WaitForSeconds(3);
@@ -108,7 +116,10 @@ public class ReadValues : MonoBehaviour
         string[] disSis = bp.Split('/');
         
         int sis = Int32.Parse(disSis[0]);
+        bpS += sis;
+        
         int dis = Int32.Parse(disSis[1]);
+        bpD += dis;
         
         if ((sis < 120 && sis >= 90) && (dis < 80 && dis >= 60))
         {
@@ -154,6 +165,28 @@ public class ReadValues : MonoBehaviour
     {
         float med = total / baseT;
         
-        medT.text = "Median: " + med;
+        medT.text = "Median: " + med.ToString("0.0");;
+    }
+
+    void MedianHR(int total, int baseT)
+    {
+        int med = total / baseT;
+        
+        medH.text = "Median: " + med;
+    }
+
+    void MedianBP(int totalS, int totalD, int baseT)
+    {
+        int medS = totalS / baseT;
+        int medD = totalD / baseT;
+        
+        medB.text = "Median: " + medS + "/" + medD;
+    }
+
+    void MedianSPO(int total, int baseT)
+    {
+        int med = total / baseT;
+        
+        medS.text = "Median: " + med;
     }
 }
