@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Proyecto26;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class ReadValues : MonoBehaviour
 {
@@ -80,6 +82,7 @@ public class ReadValues : MonoBehaviour
             tempratureText.color = Color.yellow;
             tA.SetActive(true);
             tD.SetActive(false);
+            sendAlert("High Temprature " + temp);
         }
         else if (temp >= 40.0)
         {
@@ -189,4 +192,25 @@ public class ReadValues : MonoBehaviour
         
         medS.text = "Median: " + med;
     }
+    
+    static string UnixToDate(int Timestamp, string ConvertFormat)
+    {
+        DateTime ConvertedUnixTime = DateTimeOffset.FromUnixTimeSeconds(Timestamp).DateTime;
+        return ConvertedUnixTime.ToString(ConvertFormat);
+    }
+
+    int TimestampMy = (int)DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+
+    void sendAlert(string message)
+    {
+        
+        Alert alert = new Alert(UnixToDate(TimestampMy, "HH:mm:ss"), message);
+        RestClient.Post("https://safetrack-tecstorm-default-rtdb.europe-west1.firebasedatabase.app/P1/Alerts.json", alert)
+            .Then(
+                respose =>
+                {
+                    Debug.Log(respose);
+                });
+    }
+    
 }

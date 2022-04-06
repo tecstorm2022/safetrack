@@ -10,7 +10,8 @@ public class FirebaseValues : MonoBehaviour
     public Text test;
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        Debug.Log(UnixToDate(TimestampMy, "HH:mm:ss"));
        ReturnData();
     }
 
@@ -30,4 +31,12 @@ public class FirebaseValues : MonoBehaviour
                     test.text = respose.Text;
                 });
     }
+    
+    static string UnixToDate(int Timestamp, string ConvertFormat)
+    {
+        DateTime ConvertedUnixTime = DateTimeOffset.FromUnixTimeSeconds(Timestamp).DateTime;
+        return ConvertedUnixTime.ToString(ConvertFormat);
+    }
+
+    int TimestampMy = (int)DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
 }
