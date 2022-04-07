@@ -82,13 +82,14 @@ public class ReadValues : MonoBehaviour
             tempratureText.color = Color.yellow;
             tA.SetActive(true);
             tD.SetActive(false);
-            sendAlert("High Temprature " + temp);
+            sendAlert("High Temprature- " + temp + "ºC");
         }
         else if (temp >= 40.0)
         {
             tempratureText.color = Color.red;
             tA.SetActive(false);
             tD.SetActive(true);
+            sendAlert("Dangerous Temprature- " + temp + "ºC");
         }
         
     }
@@ -105,12 +106,14 @@ public class ReadValues : MonoBehaviour
             hrText.color = Color.yellow;
             hA.SetActive(true);
             hD.SetActive(false);
+            sendAlert("Irregular Heart rate- " + hr);
         }
         else if (hr <= 20 || hr >= 150)
         {
             hrText.color = Color.red;
             hA.SetActive(false);
             hD.SetActive(true);
+            sendAlert("Extremely Irregular Heart rate- " + hr);
         }
     }
 
@@ -135,11 +138,13 @@ public class ReadValues : MonoBehaviour
             bpText.color = Color.red;
             bA.SetActive(false);
             bD.SetActive(true);
+            sendAlert("Deadly Blood Perssure- " + sis+"/"+dis);
         } else if ((sis <= 90 && dis > 60) || (sis > 90 && dis <= 60) || (sis >= 120 && sis < 130 && dis < 80))
         {
             bpText.color = Color.yellow;
             bA.SetActive(true);
             bD.SetActive(false);
+            sendAlert("Irregular Blood Perssure- " + sis+"/"+dis);
         }
     }
 
@@ -155,12 +160,14 @@ public class ReadValues : MonoBehaviour
             spoText.color = Color.yellow;
             sA.SetActive(true);
             sD.SetActive(false);
+            sendAlert("Medium Oxygen- " + spo);
         }
         else if (spo <= 92)
         {
             spoText.color = Color.red;
             sA.SetActive(false);
             sD.SetActive(true);
+            sendAlert("Low Oxygen- " + spo);
         }
     }
 
@@ -192,24 +199,16 @@ public class ReadValues : MonoBehaviour
         
         medS.text = "Median: " + med;
     }
-    
-    static string UnixToDate(int Timestamp, string ConvertFormat)
-    {
-        DateTime ConvertedUnixTime = DateTimeOffset.FromUnixTimeSeconds(Timestamp).DateTime;
-        return ConvertedUnixTime.ToString(ConvertFormat);
-    }
-
-    int TimestampMy = (int)DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
 
     void sendAlert(string message)
     {
         
-        Alert alert = new Alert(UnixToDate(TimestampMy, "HH:mm:ss"), message);
+        Alert alert = new Alert(DateTime.Now.ToString("MM/dd/yyyy HH:mm"), message);
         RestClient.Post("https://safetrack-tecstorm-default-rtdb.europe-west1.firebasedatabase.app/P1/Alerts.json", alert)
             .Then(
                 respose =>
                 {
-                    Debug.Log(respose);
+                    
                 });
     }
     
