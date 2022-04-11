@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -311,8 +311,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18.099998, y: -301.7575}
-  m_SizeDelta: {x: 791.0914, y: -87.5324}
+  m_AnchoredPosition: {x: -19.107, y: -351.6013}
+  m_SizeDelta: {x: 890.7786, y: -89.5463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &144671908
 MonoBehaviour:
@@ -386,8 +386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 248, y: -727.76}
-  m_SizeDelta: {x: 427.9308, y: 40.6989}
+  m_AnchoredPosition: {x: 248, y: -777.6007}
+  m_SizeDelta: {x: 427.93, y: 140.3804}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &165447810
 CanvasRenderer:
@@ -800,8 +800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 248, y: -127.37}
-  m_SizeDelta: {x: 427.9308, y: 40.6989}
+  m_AnchoredPosition: {x: 243.02, y: -175.5129}
+  m_SizeDelta: {x: 417.98, y: 136.9849}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &412209905
 CanvasRenderer:
@@ -1266,8 +1266,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 248, y: -327.08}
-  m_SizeDelta: {x: 427.9308, y: 40.6989}
+  m_AnchoredPosition: {x: 248, y: -380.03726}
+  m_SizeDelta: {x: 427.93, y: 146.6135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &999018190
 CanvasRenderer:
@@ -1438,8 +1438,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 248, y: -527.18}
-  m_SizeDelta: {x: 427.9308, y: 40.6989}
+  m_AnchoredPosition: {x: 248, y: -576.92773}
+  m_SizeDelta: {x: 427.93, y: 140.1945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1072318635
 CanvasRenderer:
@@ -1813,7 +1813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btn: {fileID: 1491971530}
-  scene: Monitor
+  scene: Patient1
 --- !u!114 &1491971530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,8 +1930,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 248, y: 75}
-  m_SizeDelta: {x: 427.9308, y: 40.6989}
+  m_AnchoredPosition: {x: 248, y: 22.675}
+  m_SizeDelta: {x: 427.9308, y: 145.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1576486679
 CanvasRenderer:
