@@ -18,7 +18,10 @@ public class FirebaseValues : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ReturnData();
+        RestClient.GetArray<string>("https://safetrack-tecstorm-default-rtdb.europe-west1.firebasedatabase.app/P1/Alerts/patient1Alerts.json").Then(allUsers => {
+            ReturnData(allUsers);
+        });
+        
     }
 
     // Update is called once per frame
@@ -27,11 +30,8 @@ public class FirebaseValues : MonoBehaviour
         
     }
 
-    private void ReturnData()
+    private void ReturnData(string[] alertT)
     {
-        AllAlert alerts = JsonUtility.FromJson<AllAlert>(jsonFile.text);
-
-        String[] alertT = alerts.patient1Alerts;
 
         for (int i = 0; i < alertT.Length; i++)
         {

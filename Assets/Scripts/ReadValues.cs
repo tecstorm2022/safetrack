@@ -21,10 +21,16 @@ public class ReadValues : MonoBehaviour
     public Text tempratureText, spoText, hrText, bpText, medT, medH, medB, medS;
 
     public GameObject tA, tD, hA, hD, bA, bD, sA, sD;
+
+    private List<string> aList = new List<string>();
     
     // Start is called before the first frame update
     void Start()
     {
+        Alert alert = new Alert(DateTime.Now.ToString("MM/dd/yyyy HH:mm"), "Starting Monitoring");
+        RestClient.Put("https://safetrack-tecstorm-default-rtdb.europe-west1.firebasedatabase.app/P1/Alerts.json",
+            alert);
+
         PValue tempratureJSON = JsonUtility.FromJson<PValue>(jsonFile.text);
 
         temps = tempratureJSON.temp;
@@ -204,12 +210,18 @@ public class ReadValues : MonoBehaviour
     {
         
         Alert alert = new Alert(DateTime.Now.ToString("MM/dd/yyyy HH:mm"), message);
-        RestClient.Post("https://safetrack-tecstorm-default-rtdb.europe-west1.firebasedatabase.app/P1/Alerts.json", alert)
-            .Then(
-                respose =>
-                {
-                    
-                });
+        
+        string alertM = DateTime.Now.ToString("MM/dd/yyyy HH:mm") + "|" + message;
+        aList.Add(alertM);
+        
+        //RestClient.Post("https://safetrack-tecstorm-default-rtdb.europe-west1.firebasedatabase.app/P1/Alerts.json", alert);
     }
-    
+
+    private void OnDestroy()
+    {
+        string[] shit = aList.ToArray();
+        AllAlert arrayAlert = new AllAlert(shit);
+
+        RestClient.Put("https://safetrack-tecstorm-default-rtdb.europe-west1.firebasedatabase.app/P1/Alerts.json", arrayAlert);
+    }
 }

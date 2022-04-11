@@ -6,6 +6,10 @@ using UnityEngine;
 [Serializable]
 public class AllAlert
 {
-    public String[] patient1Alerts;
+    public string[] patient1Alerts;
 
+    public AllAlert(string[] megabruh)
+    {
+        patient1Alerts = megabruh;
+    }
 }
