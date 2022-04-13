@@ -26,5 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/History.unity
     guid: 5b0a44cfc4ac84e0eb0497130142a502
+  - enabled: 1
+    path: Assets/Scenes/AR.unity
+    guid: 64beee6edcdb1ba4fa11d59beac20378
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3cb8b0cc08fb8a9429153f1411b4462d, type: 2}
