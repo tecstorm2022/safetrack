@@ -23,7 +23,7 @@ public class ReadValues : MonoBehaviour
     public GameObject tA, tD, hA, hD, bA, bD, sA, sD;
 
     private List<string> aList = new List<string>();
-    
+
     // Start is called before the first frame update
     void Start()
     {

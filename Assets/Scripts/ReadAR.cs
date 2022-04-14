@@ -18,6 +18,9 @@ public class ReadAR : MonoBehaviour
 
     public GameObject alert, warning;
 
+    public AudioClip normal, fast, slow;
+    public AudioSource heartS;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,27 +59,36 @@ public class ReadAR : MonoBehaviour
             pulseH.pulsation = 0.035f;
             alert.SetActive(false);
             warning.SetActive(false);
-            
+            heartS.clip = normal;
+            heartS.Play();
         } else if ((hr > 20 && hr < 50))
         {
             pulseH.pulsation = 0.045f;
             alert.SetActive(false);
             warning.SetActive(true);
+            heartS.clip = slow;
+            heartS.Play();
         } else if ((hr >= 110 && hr < 150))
         {
             pulseH.pulsation = 0.015f;
             alert.SetActive(false);
             warning.SetActive(true);
+            heartS.clip = fast;
+            heartS.Play();
         } else if (hr <= 20)
         {
             pulseH.pulsation = 0.055f;
             alert.SetActive(true);
             warning.SetActive(false);
+            heartS.clip = slow;
+            heartS.Play();
         } else if (hr >= 150)
         {
             pulseH.pulsation = 0.005f;
             alert.SetActive(true);
             warning.SetActive(false);
+            heartS.clip = fast;
+            heartS.Play();
         }
     }
 
