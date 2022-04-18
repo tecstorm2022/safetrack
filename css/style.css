@@ -805,6 +805,18 @@ button:focus{
 }
 @media only screen and (max-width:990px){
     .serviceBox{ margin-bottom: 30px; }
+
+}
+
+@media only screen and (min-width:990px){
+	.serviceBox{ margin-bottom: 30px; }
+
+	.services-box .owl-carousel .owl-nav{
+		display: inline-block;
+		margin: 0 auto;
+		margin-top: 20px;
+		visibility: hidden;
+	}
 }
 
 .serviceBox a{
@@ -849,7 +861,7 @@ button:focus{
 	margin: 0 10px;
 }
 .services-box .owl-carousel .owl-nav .owl-prev:hover{
-	background: #00cb86;
+	background: #57cef8;
 	color: #ffffff;
 }
 .services-box .owl-carousel .owl-nav .owl-next{
@@ -866,7 +878,7 @@ button:focus{
 	margin: 0 10px;
 }
 .services-box .owl-carousel .owl-nav .owl-next:hover{
-	background: #00cb86;
+	background: #57cef8;
 	color: #ffffff;
 }
 
