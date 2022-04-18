@@ -417,11 +417,11 @@ button:focus{
 }
 
 .navbar-toggler:hover{
-	border: 1px solid #00cb86;
+	border: 1px solid #57cef8;
 }
 
 .navbar-toggler:hover span{
-	background: #00cb86;
+	background: #57cef8;
 }
 
 
@@ -524,7 +524,7 @@ button:focus{
 .tooltip-1 {
 	display: inline-block;
 	position: relative;
-	color: #00cb86;
+	color: #57cef8;
 	opacity: 1;
 }
 
@@ -580,7 +580,7 @@ button:focus{
 }
 
 .title-box h2 span{
-	color: #00cb86;
+	color: #57cef8;
 	text-decoration: underline;
 }
 .about-main-info h2{
@@ -588,7 +588,7 @@ button:focus{
 	font-family: 'Catamaran', sans-serif;
 }
 .about-main-info h2 span{
-	color: #00cb86;
+	color: #57cef8;
 	text-decoration: underline;
 }
 .about-main-info{
@@ -596,7 +596,7 @@ button:focus{
 }
 
 .about-m{
-	border: 2px solid #00cb86;
+	border: 2px solid #57cef8;
 	box-shadow: 0 10px 25px 0 rgba(0,0,40,.2);
 }
 
