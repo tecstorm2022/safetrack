@@ -188,7 +188,7 @@
 		loop: false,
 		center: false,
 		rewind: false,
-		checkVisibility: true,
+		checkVisibility: false,
 
 		mouseDrag: false,
 		touchDrag: true,
