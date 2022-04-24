@@ -1509,8 +1509,27 @@ a {
 	height: auto;
 }
 
+.bn632-hover.bn22 {
+	background-image: linear-gradient(
+			to right,
+			#0ba360,
+			#3cba92,
+			#30dd8a,
+			#2bb673
+	);
+	box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
 
-
+.bn632-hover.bn27 {
+	background-image: linear-gradient(
+			to right,
+			#ed6ea0,
+			#ec8c69,
+			#f7186a,
+			#fbb03b
+	);
+	box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
 
 
 
